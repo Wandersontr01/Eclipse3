@@ -36,6 +36,20 @@ public class vetAluno {
 		}
 	}
 	
+	public int deletarPorNome(String nome) {
+		if(this.quantAluno == 0) {
+		return 0; //vetor vazio
+		}else {
+			for(int c=0; c<this.quantAluno;c++) {
+				if(this.vet[c].getNome().equalsIgnoreCase(nome)) {
+					this.vet[c] = this.vet[this.quantAluno-1];
+					return 1;
+				}
+			}
+			return 2; //nome nao encontrado na lista
+		}
+	}
+	//
 	
 	
 }
