@@ -26,13 +26,13 @@ public class vetAluno {
 	}
 
 
-	public int cadastrar(Aluno novo) {
+	public boolean cadastrar(Aluno novo) {
 		if(this.vet.length == this.quantAluno) {
-			return 0; //vetor cheio
+			return false; //vetor cheio
 		}else {
 			this.vet[this.quantAluno+1] = novo;
 			this.quantAluno++;
-			return 1; //sucesso
+			return true; //sucesso
 		}
 	}
 	
@@ -48,6 +48,11 @@ public class vetAluno {
 			}
 			return 2; //nome nao encontrado na lista
 		}
+	}
+	
+	public void mostrarAlunoCadastrado() {
+		System.out.println("Nome: "+this.vet[this.quantAluno].getNome());
+		System.out.println("Matricula: "+this.vet[this.quantAluno].getMatricula());
 	}
 	//
 	
