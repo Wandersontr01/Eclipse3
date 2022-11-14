@@ -1,2 +1,0 @@
-# Eclipse3
- Testes
