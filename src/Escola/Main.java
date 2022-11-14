@@ -11,7 +11,12 @@ public class Main {
 		System.out.println("MENU");
 		int op = 0;
 		while (op != 9) {
-			System.out.println("Informe o opcao desejada\n" + "[1] Cadastrar Aluno\n" + "[2] Deletar Aluno");
+			System.out.println("Informe o opcao desejada\n"
+					+ "[1] Cadastrar Aluno\n"
+					+ "[2] Deletar Aluno\n"
+					+ "[3] Mostrar todos Alunos Registrados\n"
+					+ "[4] Calcula media geral de todos Alunos");
+			
 			op = entrada.nextInt();
 
 			switch (op) {
