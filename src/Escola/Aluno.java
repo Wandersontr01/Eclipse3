@@ -7,6 +7,7 @@ public class Aluno {
 	private double c2;
 	private double c3;
 	private double media;
+	private boolean situacao;
 
 	public Aluno(int matricula, String nome, double c1, double c2, double c3) {
 		super();
@@ -16,6 +17,11 @@ public class Aluno {
 		this.c2 = c2;
 		this.c3 = c3;
 		this.media = (this.c1 + this.c2 + this.c3) / 3;
+		if(this.media >= 7) {
+			this.situacao = true;
+		}else {
+			this.situacao = false;
+		}
 	}
 
 	public int getMatricula() {
@@ -41,6 +47,9 @@ public class Aluno {
 	public double getMedia() {
 		return this.media;
 	}
+	public boolean getSituacao() {
+		return this.situacao;
+	}
 
 	public void setMatricula(int matricula) {
 		this.matricula = matricula;
@@ -61,6 +70,7 @@ public class Aluno {
 	public void setC3(double c3) {
 		this.c3 = c3;
 	}
+	
 
 	@Override
 	public String toString() {

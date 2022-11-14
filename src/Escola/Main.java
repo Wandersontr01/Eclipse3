@@ -7,11 +7,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		vetAluno turma = new vetAluno(30);
-
+		Aluno aluno1 = new Aluno(22110354, "Wanderson", 10, 10, 10);
+		Aluno aluno2 = new Aluno(22110322, "Douglas", 5.5, 2.4, 5.9);
+		Aluno aluno3 = new Aluno(22110345, "Mateus", 7.5, 8.9, 9.8);
+		Aluno aluno4 = new Aluno(22110093, "Felipe", 2.5, 3.4, 6.6);
+		turma.cadastrar(aluno1);
+		turma.cadastrar(aluno2);
+		turma.cadastrar(aluno3);
+		turma.cadastrar(aluno4);
+		
 		System.out.println("MENU");
 		int op = 0;
 		while (op != 9) {
-			System.out.println("Informe o opcao desejada\n"
+			System.out.println("\n\nInforme o opcao desejada\n"
 					+ "[1] Cadastrar Aluno\n"
 					+ "[2] Deletar Aluno\n"
 					+ "[3] Mostrar todos Alunos Registrados\n"
@@ -31,6 +39,9 @@ public class Main {
 				break;
 			case 4:
 				turma.calcularMediaGeral();
+				break;
+			case 5:
+				turma.relatorio();
 				break;
 			case 9:
 				System.out.println("Fim de programa!");

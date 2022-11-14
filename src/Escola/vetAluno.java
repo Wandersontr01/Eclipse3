@@ -74,12 +74,17 @@ public class vetAluno {
 		if (this.quantAluno != 0) {
 			System.out.println("\nListagem de Alunos");
 			for (int c = 0; c < this.quantAluno; c++) {
-				System.out.println("Nome: " + this.vet[c].getNome());
+				System.out.println("\nNome: " + this.vet[c].getNome());
 				System.out.println("Matricula: " + this.vet[c].getMatricula());
 				System.out.println("Nota C1: " + this.vet[c].getC1());
 				System.out.println("Nota C2: " + this.vet[c].getC2());
 				System.out.println("Nota C3: " + this.vet[c].getC3());
 				System.out.println("Media: " + this.vet[c].getMedia());
+				if(this.vet[c].getSituacao()) {
+					System.out.println("Situação: Aprovado!");
+				}else {
+					System.out.println("Situação: Reprovado!");
+				}
 			}
 		} else {
 			System.out.println("Nenhum aluno cadastrado!");
@@ -97,6 +102,20 @@ public class vetAluno {
 		} else {
 			System.out.println("Nenhum aluno cadastrado!");
 		}
+	}
+	public void relatorio() {
+		int aprovado = 0;
+		int reprovado = 0;
+		
+		for(int c=0; c<this.quantAluno; c++) {
+			if(this.vet[c].getSituacao()) {
+				aprovado++;
+			}else {
+				reprovado++;
+			}
+		}
+		System.out.println("Alunos Aprovados: "+aprovado);
+		System.out.println("Alunos Reprovados: "+reprovado);
 	}
 
 	@Override
