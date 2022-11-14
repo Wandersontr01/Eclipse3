@@ -69,12 +69,40 @@ public class vetAluno {
 		System.out.println("Nome: "+this.vet[this.quantAluno-1].getNome());
 		System.out.println("Matricula: "+this.vet[this.quantAluno-1].getMatricula());
 	}
-
+	public void mostrarTodos() {
+		if(this.quantAluno != 0) {
+			System.out.println("\nListagem de Alunos");
+			for(int c=0;c<this.quantAluno;c++) {
+				System.out.println("Nome: "+this.vet[c].getNome());
+				System.out.println("Matricula: "+this.vet[c].getMatricula());
+				System.out.println("Nota C1: "+this.vet[c].getC1());
+				System.out.println("Nota C2: "+this.vet[c].getC2());
+				System.out.println("Nota C3: "+this.vet[c].getC3());
+				System.out.println("Media: "+this.vet[c].getMedia());
+				}
+			}else {
+				System.out.println("Nenhum aluno cadastrado!");
+		}
+	}
+	public void calcularMediaGeral() {
+		if(this.quantAluno != 0) {
+			double mediaGeral = 0;
+			
+			for(int c=0;c<this.quantAluno;c++) {
+				mediaGeral+= this.vet[c].getMedia();
+			}
+			System.out.println("A media Geral é: "+ (mediaGeral  /= (this.quantAluno)));
+		}
+	}
 
 
 	@Override
 	public String toString() {
-		return "Lista de alunos\n"+Arrays.toString(vet);
+		if(this.quantAluno == 0) {
+			return "Nenhum aluno cadastrado!";
+		}else {
+			return "Lista de alunos\n"+Arrays.toString(vet);
+		}	
 	}
 	
 	//

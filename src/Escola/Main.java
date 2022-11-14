@@ -23,9 +23,10 @@ public class Main {
 				deletarAluno(turma);
 				break;
 			case 3:
-				System.out.println(turma.toString());
+				turma.mostrarTodos();
 				break;
 			case 4:
+				turma.calcularMediaGeral();
 				break;
 			case 9:
 				System.out.println("Fim de programa!");
