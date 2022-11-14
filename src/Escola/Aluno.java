@@ -52,6 +52,11 @@ public class Aluno {
 	public void setC3(double c3) {
 		this.c3 = c3;
 	}
+
+	@Override
+	public String toString() {
+		return "\nAluno: "+nome+"\nMatricula: "+matricula+"\nNota c1: "+c1+"\nNota c2: "+c2+"\nNota c3: "+c3+"\n";
+	}
 	
 	
 }
