@@ -4,17 +4,24 @@ import java.util.*;
 
 public class Main {
 	static Scanner entrada = new Scanner(System.in);
+	static String materia;
 
 	public static void main(String[] args) {
 		vetAluno turma = new vetAluno(30);
-		Aluno aluno1 = new Aluno(22110354, "Wanderson", 10, 10, 10);
-		Aluno aluno2 = new Aluno(22110322, "Douglas", 5.5, 2.4, 5.9);
-		Aluno aluno3 = new Aluno(22110345, "Mateus", 7.5, 8.9, 9.8);
-		Aluno aluno4 = new Aluno(22110093, "Felipe", 2.5, 3.4, 6.6);
+		vetMaterias mat = new vetMaterias(5);
+		Aluno aluno1 = new Aluno(22110354, "Wanderson", "matematica",10, 10, 10);
+		Aluno aluno2 = new Aluno(22110322, "Douglas", "Portugues",5.5, 2.4, 5.9);
+		Aluno aluno3 = new Aluno(22110345, "Mateus", "matematica",7.5, 8.9, 9.8);
+		Aluno aluno4 = new Aluno(22110093, "Felipe", "portugues",2.5, 3.4, 6.6);
 		turma.cadastrar(aluno1);
 		turma.cadastrar(aluno2);
 		turma.cadastrar(aluno3);
 		turma.cadastrar(aluno4);
+		Materia materia1 = new Materia("Matematica", "Prof_Rafael");
+		Materia materia2 = new Materia("Portugues", "Prof_Carla");
+		mat.cadastrarMateria(materia1);
+		mat.cadastrarMateria(materia2);
+		
 		
 		System.out.println("MENU2");
 		int op = 0;
@@ -29,7 +36,7 @@ public class Main {
 
 			switch (op) {
 			case 1:
-				cadastrarAluno(turma);
+				cadastrarAluno(turma, mat);
 				break;
 			case 2:
 				deletarAluno(turma);
@@ -54,7 +61,7 @@ public class Main {
 
 	}
 
-	public static void cadastrarAluno(vetAluno a) {
+	public static void cadastrarAluno(vetAluno a, vetMaterias mat) {
 		System.out.print("informe o nome do aluno: ");
 		String nome = entrada.next();
 		System.out.print("Informe a matricula do aluno: ");
@@ -65,7 +72,15 @@ public class Main {
 		double c2 = entrada.nextDouble();
 		System.out.print("informe a nota da C2: ");
 		double c3 = entrada.nextDouble();
-		Aluno aluno = new Aluno(matricula, nome, c1, c2, c3);
+		System.out.println("Informe a materia: ");
+		materia = entrada.next();
+		
+		for(int c=0; c<mat.getQtdMateria(); c++) {
+			if(materia.equalsIgnoreCase(mat.getNomeMat())) {
+				materia = mat.getNomeMat();
+			}
+		}
+		Aluno aluno = new Aluno(matricula, nome, materia,c1, c2, c3);
 
 		if (a.cadastrar(aluno)) {
 			System.out.println("Aluno cadastrado!");
@@ -83,29 +98,33 @@ public class Main {
 			if (op.equalsIgnoreCase("nome")) {
 				System.out.print("Informe o nome do aluno: ");
 				String nome = entrada.next();
-
-				if (a.deletarPorNome(nome) == 0) {
+				int result = a.deletarPorNome(nome);
+				if (result == 0) {
 					System.out.println("Nenhum Aluno cadastrado!");
-				} else if (a.deletarPorNome(nome) == 1) {
+				} else if (result == 1) {
 					System.out.println("Aluno excluido com sucesso!");
-				} else if (a.deletarPorNome(nome) == 2) {
+				} else if (result == 2) {
 					System.out.println("Aluno não encontrado!");
 				}
 			} else if (op.equalsIgnoreCase("matricula")) {
 				System.out.print("Informe a matricula do aluno: ");
 				int matricula = entrada.nextInt();
+				int result = a.deletarPorMatricula(matricula);
 
-				if (a.deletarPorMatricula(matricula) == 0) {
+				if (result == 0) {
 					System.out.println("Nenhum Aluno cadastrado!");
-				} else if (a.deletarPorMatricula(matricula) == 1) {
+				} else if (result == 1) {
 					System.out.println("Aluno excluido com sucesso!");
-				} else if (a.deletarPorMatricula(matricula) == 2) {
+				} else if (result == 2) {
 					System.out.println("Aluno não encontrado!");
 				}
 			}
 
 		}
 
+	}
+	public String getMateria() {
+		return materia;
 	}
 
 }

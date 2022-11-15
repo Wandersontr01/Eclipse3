@@ -1,6 +1,7 @@
 package Escola2;
 
 public class vetMaterias {
+	Aluno aluno = new Aluno();
 	private Materia vetMat[];
 	private int qtdMateria;
 	
@@ -11,6 +12,15 @@ public class vetMaterias {
 
 	public Materia[] getVetMat() {
 		return vetMat;
+	}
+	public String getNomeMat() {
+		Main a = new Main();
+		for(int c=0; c<this.qtdMateria;c++) {
+			if(a.getMateria().equalsIgnoreCase(this.vetMat[c].getNome())){
+				return this.vetMat[c].getNome();
+			}	
+		}
+		return "Materia Não Existe!";
 	}
 	public void setVetMat(Materia[] vetMat) {
 		this.vetMat = vetMat;
@@ -35,9 +45,12 @@ public class vetMaterias {
 	public int deletarMateriaNome(String nome) {
 		for(int c=0; c<this.qtdMateria;c++) {
 			if(this.vetMat[c].getNome().equalsIgnoreCase(nome)) {
-				this.vetMat[c] = this.vetMat[this.qtdMateria];
+				this.vetMat[c] = this.vetMat[this.qtdMateria-1];
+				this.qtdMateria--;
+				return 1;//Materia deletada
 			}
 		}
+		return 2; //materia nao encontrada
 	}
 	
 	

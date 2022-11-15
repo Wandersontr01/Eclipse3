@@ -43,7 +43,8 @@ public class vetAluno {
 		} else {
 			for (int c = 0; c < this.quantAluno; c++) {
 				if (this.vet[c].getNome().equalsIgnoreCase(nome)) {
-					this.vet[c] = this.vet[this.quantAluno - 1];
+					this.vet[c] = this.vet[this.quantAluno-1];
+					this.quantAluno--;
 					return 1;
 				}
 			}
@@ -57,7 +58,8 @@ public class vetAluno {
 		} else {
 			for (int c = 0; c < this.quantAluno; c++) {
 				if (this.vet[c].getMatricula() == matricula) {
-					this.vet[c] = this.vet[this.quantAluno - 1];
+					this.vet[c] = this.vet[this.quantAluno-1];
+					this.quantAluno--;
 					return 1;
 				}
 			}
@@ -76,6 +78,7 @@ public class vetAluno {
 			for (int c = 0; c < this.quantAluno; c++) {
 				System.out.println("\nNome: " + this.vet[c].getNome());
 				System.out.println("Matricula: " + this.vet[c].getMatricula());
+				System.out.println("Materia: " + this.vet[c].getMateria());
 				System.out.println("Nota C1: " + this.vet[c].getC1());
 				System.out.println("Nota C2: " + this.vet[c].getC2());
 				System.out.println("Nota C3: " + this.vet[c].getC3());

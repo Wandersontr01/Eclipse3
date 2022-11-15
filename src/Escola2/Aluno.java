@@ -1,15 +1,17 @@
 package Escola2;
 
 public class Aluno {
+
 	private int matricula;
 	private String nome;
+	private String materia;
 	private double c1;
 	private double c2;
 	private double c3;
 	private double media;
 	private boolean situacao;
 
-	public Aluno(int matricula, String nome, double c1, double c2, double c3) {
+	public Aluno(int matricula, String nome, String materia, double c1, double c2, double c3) {
 		super();
 		this.matricula = matricula;
 		this.nome = nome;
@@ -22,6 +24,11 @@ public class Aluno {
 		}else {
 			this.situacao = false;
 		}
+		this.materia = materia;
+		
+	}
+	public Aluno(){
+ 
 	}
 
 	public int getMatricula() {
@@ -49,6 +56,9 @@ public class Aluno {
 	}
 	public boolean getSituacao() {
 		return this.situacao;
+	}
+	public String getMateria() {
+		return this.materia;
 	}
 
 	public void setMatricula(int matricula) {
