@@ -9,6 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		vetAluno turma = new vetAluno(30);
 		vetMaterias mat = new vetMaterias(5);
+		vetUsuarios usuario = new vetUsuarios(5);
 		Aluno aluno1 = new Aluno(22110354, "Wanderson", "matematica",10, 10, 10);
 		Aluno aluno2 = new Aluno(22110322, "Douglas", "Portugues",5.5, 2.4, 5.9);
 		Aluno aluno3 = new Aluno(22110345, "Mateus", "matematica",7.5, 8.9, 9.8);
@@ -21,12 +22,33 @@ public class Main {
 		Materia materia2 = new Materia("Portugues", "Prof_Carla");
 		mat.cadastrarMateria(materia1);
 		mat.cadastrarMateria(materia2);
+		Usuarios usuario1 = new Usuarios("admin","admin");
+		usuario.cadastrarUsuario(usuario1);
+
+		System.out.println("============== AUTENTICACAO =================");
+		System.out.print("Informe o login: ");
+		String login = entrada.next();
+		System.out.print("Informe a senha: ");
+		String senha = entrada.next();
+		boolean autenticar = usuario.autenticador(login, senha);
+	
+		while(autenticar == false){
+			System.out.println("\nLogin e/ou senha incorretos!\n");
+			System.out.print("Informe o login: ");
+			login = entrada.next();
+			System.out.print("Informe a senha: ");
+			senha = entrada.next();
+			autenticar = usuario.autenticador(login, senha);
+		}
+		System.out.println("Login bem sucecido!");
+		menu(turma, mat);
 		
-		
-		System.out.println("MENU2");
+	}
+	public static void menu(vetAluno turma, vetMaterias mat){
+		System.out.println("\nMENU");
 		int op = 0;
 		while (op != 9) {
-			System.out.println("\n\nInforme o opcao desejada\n"
+			System.out.println("Informe o opcao desejada\n"
 					+ "[1] Cadastrar Aluno\n"
 					+ "[2] Deletar Aluno\n"
 					+ "[3] Mostrar todos Alunos Registrados\n"
