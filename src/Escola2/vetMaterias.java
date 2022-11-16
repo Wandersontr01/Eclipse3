@@ -52,6 +52,21 @@ public class vetMaterias {
 		}
 		return 2; //materia nao encontrada
 	}
+	public void mostrarMaterias(){
+		System.out.println("\n====== MATERIAS ======");
+		for(int c=0; c<this.qtdMateria; c++){
+			System.out.println(this.vetMat[c].getNome());
+			System.out.println("Professor: "+this.vetMat[c].getProfessor());
+		}
+	}
+	public boolean procuraMateria(String materia){
+		for(int c=0; c<this.qtdMateria; c++){
+			if(this.vetMat[c].getNome().equalsIgnoreCase(materia)){
+				return true;
+			}	
+		}
+		return false;
+	}
 	
 	
 	

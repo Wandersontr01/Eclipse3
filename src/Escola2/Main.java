@@ -50,6 +50,9 @@ public class Main {
 			case 5:
 				turma.relatorio();
 				break;
+			case 6:
+				mat.mostrarMaterias();
+				break;
 			case 9:
 				System.out.println("Fim de programa!");
 				break;
@@ -74,12 +77,16 @@ public class Main {
 		double c3 = entrada.nextDouble();
 		System.out.println("Informe a materia: ");
 		materia = entrada.next();
-		
-		for(int c=0; c<mat.getQtdMateria(); c++) {
-			if(materia.equalsIgnoreCase(mat.getNomeMat())) {
-				materia = mat.getNomeMat();
+		for(int c=0; c<mat.getQtdMateria(); c++){
+			boolean resultado = mat.procuraMateria(materia);
+			if(resultado == false){
+				System.out.println("A materia Informada não existe!");
+				System.out.print("Informe uma matéria válida: ");
+				materia = entrada.next();
 			}
 		}
+		
+		
 		Aluno aluno = new Aluno(matricula, nome, materia,c1, c2, c3);
 
 		if (a.cadastrar(aluno)) {
